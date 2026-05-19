@@ -18,6 +18,9 @@ spy_Str *WASM_EXPORT(spy_str_add)(spy_Str *a, spy_Str *b);
 spy_Str
     *WASM_EXPORT(spy_str_replace)(spy_Str *original, spy_Str *old, spy_Str *new_str);
 
+
+bool WASM_EXPORT(spy_str_contains)(spy_Str *container, spy_Str *target);
+
 spy_Str *WASM_EXPORT(spy_str_mul)(spy_Str *a, int32_t b);
 
 bool WASM_EXPORT(spy_str_eq)(spy_Str *a, spy_Str *b);
@@ -42,6 +45,7 @@ int32_t WASM_EXPORT(spy_str_hash)(spy_Str *s);
 #define spy_operator$str_ne spy_str_ne
 #define spy_operator$str_to_complex128 spy_str_to_complex128
 #define spy_builtins$str$replace spy_str_replace
+#define spy_builtins$str$__contains__ spy_str_contains
 #define spy_builtins$str$__getitem__ spy_str_getitem
 #define spy_builtins$str$__len__ spy_str_len
 #define spy_builtins$str$__str__ spy_str_identity

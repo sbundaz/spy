@@ -175,6 +175,25 @@ spy_str_repr(spy_Str *s) {
     return res;
 }
 
+bool
+spy_str_contains(spy_Str *container, spy_Str *target) {
+    size_t target_len = target->length;
+    size_t container_len = container->length;
+
+    if (target_len == 0)
+        return true;
+    if (target_len > container_len)
+        return false;
+
+    size_t last = container_len - target_len;
+    for (size_t i = 0; i <= last; i++) {
+        if (memcmp(container->utf8 + i, target->utf8, target_len) == 0)
+            return true;
+    }
+    return false;
+}
+
+
 int32_t
 spy_str_hash(spy_Str *s) {
     if (s->hash != 0)
